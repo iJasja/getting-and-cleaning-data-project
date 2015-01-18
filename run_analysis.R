@@ -7,7 +7,7 @@
 #######################################################
 
 setwd("C:\\Coursera\\R Programming\\UCI HAR Dataset")
-features <- read.table('features.txt',header=FALSE);
+features <- read.table('features.txt',header=FALSE)
 activity_labels <- read.table('activity_labels.txt',header=FALSE)
 subject_train <- read.table('./train/subject_train.txt',header=FALSE)
 x_train <- read.table('./train/x_train.txt',header=FALSE)
@@ -31,5 +31,9 @@ colnames(x_test) <- features[,2]
 colnames(y_test) <- "activityId"
 test <- cbind(y_test,subject_test,x_test)
 
-# build the  final measures data set:
-measures <- rbind(train,test)
+# build the  final measurements data set:
+measurements <- rbind(train,test)
+
+##########################################################
+# Part 2: Extract mean and stanard deviation measurements#
+##########################################################
