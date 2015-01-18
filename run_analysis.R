@@ -34,6 +34,10 @@ test <- cbind(y_test,subject_test,x_test)
 # build the  final measurements data set:
 measurements <- rbind(train,test)
 
-##########################################################
-# Part 2: Extract mean and stanard deviation measurements#
-##########################################################
+###########################################################
+# Part 2: Extract mean and standard deviation measurements#
+###########################################################
+
+columns  <- colnames(measurements)
+selected_columns <- (grepl("activity..",columns) | grepl("subject..",columns) | grepl("-mean..",columns) & !grepl("-meanFreq..",columns) & !grepl("mean..-",columns) | grepl("-std..",columns) & !grepl("-std()..-",columns))
+measurements <- measurements[selected_columns==TRUE];
