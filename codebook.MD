@@ -53,4 +53,5 @@ Column names for the measurement dataset are merged and set based on activityId.
 #### Part 4: Label the data set with descriptive activity names
 Based upon the original columnnames the columns for the measurement dataset are renamed to more descriptive names by removing parenthesis and by changing abbreviations to more readable and descriptive names.
 
-
+#### Part 5: dataset with average of each variable for each activity
+In the final part a dataset with the name "tidy" is created based upon aggregates from measurements containing the average of each variable for each activity. Finally the dataset will be written to a file called "tidy.txt" in the working directory.
