@@ -41,5 +41,8 @@ After assigning names for the columns the data is merged into a single dataset c
 The measurement dataset is reduded in this step to contain only columns containing the following string in their names:
 - activity
 - subject
+- mean
 - -mean
-
+- -meanFreq
+- -std
+- -std()
