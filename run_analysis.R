@@ -54,22 +54,24 @@ columns  <- colnames(measurements)
 for (i in 1:length(columns)) 
 {
         columns[i] = gsub("\\()","",columns[i])
-        columns[i] = gsub("-std$","standard_deviation",columns[i])
-        columns[i] = gsub("-mean","mean",columns[i])
+        columns[i] = gsub("-std$","StdDev",columns[i])
+        columns[i] = gsub("-mean","Mean",columns[i])
         columns[i] = gsub("^(t)","time",columns[i])
-        columns[i] = gsub("^(f)","frequency",columns[i])
-        columns[i] = gsub("([Gg]ravity)","gravity",columns[i])
-        columns[i] = gsub("([Bb]ody[Bb]ody|[Bb]ody)","body",columns[i])
-        columns[i] = gsub("[Gg]yro","gyro",columns[i])
-        columns[i] = gsub("AccMag","accelerate_magnitude",columns[i])
-        columns[i] = gsub("([Bb]odyaccjerkmag)","body_acc_jer_magnitude",columns[i])
-        columns[i] = gsub("JerkMag","jerk_magnitude",columns[i])
-        columns[i] = gsub("GyroMag","gyro_magnitude",columns[i])
+        columns[i] = gsub("^(f)","freq",columns[i])
+        columns[i] = gsub("([Gg]ravity)","Gravity",columns[i])
+        columns[i] = gsub("([Bb]ody[Bb]ody|[Bb]ody)","Body",columns[i])
+        columns[i] = gsub("[Gg]yro","Gyro",columns[i])
+        columns[i] = gsub("AccMag","AccMagnitude",columns[i])
+        columns[i] = gsub("([Bb]odyaccjerkmag)","BodyAccJerkMagnitude",columns[i])
+        columns[i] = gsub("JerkMag","JerkMagnitude",columns[i])
+        columns[i] = gsub("GyroMag","GyroMagnitude",columns[i])
 }
 colnames(measurements) <- columns
 
-##################################################################
-# Part 5: datast with average of each variable for each activity # 
-##################################################################
-measurements_no_id <- measurements[,names(measurements) != 'activityType'];
-
+###################################################################
+# Part 5: dataset with average of each variable for each activity # 
+###################################################################
+measurements_no_id <- measurements[,names(measurements) != 'activityType']
+tidy <- aggregate(measurements_no_id[,names(measurements_no_id) != c('activityId','subjectId')],by=list(activityId=measurements_no_id$activityId,subjectId = measurements_no_id$subjectId),mean)
+tidy <- merge(tidy,activity_labels,by='activityId',all.x=TRUE)
+write.table(tidy, 'tidy.txt',row.names=TRUE,sep='\t')
