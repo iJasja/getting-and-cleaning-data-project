@@ -25,11 +25,21 @@ For each record it is provided:
 The run_analysis.R consists of 5 parts which perform the following actions:
 
 #### Part 1: Merge training and test to create 1 dataset
-After setting the working directory to the directory containing the testdata the following files are read into datatables:
+After setting the working directory to the directory containing the testset the following files are read into datatables:
 - features.txt
 - activity_labels.txt
 - subject_train.txt (from train-subdirectory)
 - x_train.txt (from train-subdirectory)
 - y_train.txt (from train-subdirectory)
+- subject_test (from test-subdirectory)
+- x_test.txt (from test-subdirectory)
+- y_test (from test-subdirectory)
 
-After assigning names for the columns the data is merged into a single dataset called "train".
+After assigning names for the columns the data is merged into a single dataset called "measurements".
+
+#### Part 2: Extract mean and standard deviation measurements
+The measurement dataset is reduded in this step to contain only columns containing the following string in their names:
+- activity
+- subject
+- -mean
+
