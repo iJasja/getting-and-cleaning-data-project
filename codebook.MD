@@ -46,3 +46,11 @@ The measurement dataset is reduded in this step to contain only columns containi
 - -meanFreq
 - -std
 - -std()
+
+#### Part 3: Name the activities in the dataset
+Column names for the measurement dataset are merged and set based on activityId.
+
+#### Part 4: Label the data set with descriptive activity names
+Based upon the original columnnames the columns for the measurement dataset are renamed to more descriptive names by removing parenthesis and by changing abbreviations to more readable and descriptive names.
+
+
