@@ -20,3 +20,8 @@ For each record it is provided:
 - A 561-feature vector with time and frequency domain variables. 
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
+
+### Working of the script
+The run_analysis.R consists of 5 parts which perform the following actions:
+#### Part 1: Merge training and test to create 1 dataset
+
