@@ -49,7 +49,7 @@ measurements = merge(measurements,activity_labels,by='activityId',all.x=TRUE)
 columns  <- colnames(measurements)
 
 ##############################################################
-# Part 4: label the data set with descriptive activity names # 
+# Part 4: Label the data set with descriptive activity names # 
 ##############################################################
 for (i in 1:length(columns)) 
 {
