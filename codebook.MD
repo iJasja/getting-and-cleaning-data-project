@@ -23,5 +23,13 @@ For each record it is provided:
 
 ### Working of the script
 The run_analysis.R consists of 5 parts which perform the following actions:
-#### Part 1: Merge training and test to create 1 dataset
 
+#### Part 1: Merge training and test to create 1 dataset
+After setting the working directory to the directory containing the testdata the following files are read into datatables:
+- features.txt
+- activity_labels.txt
+- subject_train.txt (from train-subdirectory)
+- x_train.txt (from train-subdirectory)
+- y_train.txt (from train-subdirectory)
+
+After assigning names for the columns the data is merged into a single dataset called "train".
